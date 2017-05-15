@@ -10,7 +10,7 @@ function db_connect(){
    // $conn = mysqli_connect('mysql.hostinger.vn','u162050273_data1'
      //       . '','123456', 'u162050273_data');
 }
-
+        
 function db_select_list($sql){
     global $conn;
     $result = mysqli_query($conn, $sql);

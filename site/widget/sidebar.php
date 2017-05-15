@@ -26,7 +26,7 @@
                       <ul class="sub">
                           <li><a  href="general.html">Buffalo</a></li>
                           <li><a  href="buttons.html">Chicken</a></li>
-                          <li><a  href="panels.html">Cow</a></li>
+                          <li><a  href="index.php?action=cow_list">Cow</a></li>
                           <li><a  href="panels.html">Pig</a></li>
                       </ul>
                   </li>

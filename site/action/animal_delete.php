@@ -5,7 +5,7 @@ if($id){
      delete_animal($id);
 }
 // Trở về trang danh sách
-header("location: animal_list.php");
+header("location: cow_list.php");
 ?>
 /* 
  * To change this license header, choose License Headers in Project Properties.

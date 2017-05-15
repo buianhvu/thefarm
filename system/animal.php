@@ -17,13 +17,68 @@ return $result;
 }
 }
 
+function get_all_pig() {
+global $conn;
+//db_connect();
+$sql = "SELECT * FROM animals WHERE Animal_ID=1";
+$result = array();
+$query = mysqli_query($conn, $sql);
+if ($query) {
+    
+while ($row = mysqli_fetch_assoc($query)) {
+$result[] = $row;
+}
+return $result;
+}
+}
+function get_all_chicken() {
+global $conn;
+$sql = "SELECT * FROM animals WHERE Animal_ID=4";
+$result = array();
+$query = mysqli_query($conn, $sql);
+if ($query) {
+    
+while ($row = mysqli_fetch_assoc($query)) {
+$result[] = $row;
+}
+return $result;
+}
+}
+
+function get_all_buffalo() {
+global $conn;
+//db_connect();
+$sql = "SELECT * FROM animals WHERE Animal_ID=3";
+$result = array();
+$query = mysqli_query($conn, $sql);
+if ($query) {
+    
+while ($row = mysqli_fetch_assoc($query)) {
+$result[] = $row;
+}
+return $result;
+}
+}
+function get_all_cow() {
+global $conn;
+//db_connect();
+$sql = "SELECT * FROM animals WHERE Animal_ID=2";
+$result = array();
+$query = mysqli_query($conn, $sql);
+if ($query) {
+    
+while ($row = mysqli_fetch_assoc($query)) {
+$result[] = $row;
+}
+return $result;
+}
+}
+
+
 function get_animal($id) {
 
 
 global $conn;
-
-// Hàm kết nối
-db_connect();
 
 // Câu truy vấn lấy tất cả sinh viên
 $sql = "SELECT * FROM animals WHERE id = {$id}";
@@ -48,10 +103,7 @@ function add_animal( $sex,$animal_id,$health_index,$weight,$source,$account)
 {
     // Gọi tới biến toàn cục $conn
     global $conn;
-     
-    // Hàm kết nối
-    connect_db();
-     
+      
     // Chống SQL Injection
    
     $sex= addslashes($sex);
@@ -79,7 +131,6 @@ function delete_animal($id)
     global $conn;
      
     // Hàm kết nối
-    db_connect();
      
     // Câu truy sửa
     $sql = "
