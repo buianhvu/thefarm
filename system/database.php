@@ -4,9 +4,15 @@ $conn = null;
 
 function db_connect(){
     global $conn;
+<<<<<<< HEAD
     $conn = mysqli_connect('localhost','root','') or die('Can not to connect to server');
     mysqli_select_db($conn,'demo') or die('Database failed');
     
+=======
+   // $conn = mysqli_connect('mysql.hostinger.vn','u162050273_data1'
+     //       . '','123456', 'u162050273_data');
+     $conn = mysqli_connect('localhost', 'root', NULL, 'farm');
+>>>>>>> quang
 }
 
 function db_select_list($sql){
