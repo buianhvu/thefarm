@@ -3,17 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/thefarm_web/animal_list.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/index.php</file>
-            <file>file:/C:/xampp/htdocs/thefarm_web/animal_delete.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/system/database.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/site/widget/header.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/index_REMOTE_11112.php</file>
-            <file>file:/C:/xampp/htdocs/thefarm_web/index_BACKUP_11112.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/site/action/animal_delete.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/animal_add.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/index_BASE_11112.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/site/action/login.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/site/action/cow_list.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/animal_delete.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/index_BACKUP_11112.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/site/action/animal_list.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/index_LOCAL_11112.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/site/widget/sidebar.php</file>
+            <file>file:/C:/xampp/htdocs/thefarm_web/system/animal.php</file>
             <file>file:/C:/xampp/htdocs/thefarm_web/site/action/home.php</file>
         </group>
     </open-files>
