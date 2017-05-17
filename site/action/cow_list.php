@@ -1,13 +1,14 @@
 <?php
 require 'system/animal.php';
-db_connect();
 $aniaml = get_all_cow();
-db_disconnect();
-// Thực hiện xóa
-
-
 ?>
  
+<?php
+load_header();
+load_sidebar();
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +18,7 @@ db_disconnect();
     </head>
     <body>
         <h1>Cow list</h1>
-        <a href="animal-add.php">Add a cow</a> <br/> <br/>
+        <a href="index.php?action=animal-add">Add a cow</a> <br/> <br/>
         <table width="100%" border="1" cellspacing="0" cellpadding="10">
             <tr>
                     <td>ID</td>
@@ -38,7 +39,7 @@ db_disconnect();
  <td><?php echo $item['Source']; ?></td>
  <td><?php echo $item['Account']; ?></td>
                 <td>
-                        <form method="post" action="animal_delete.php">
+                        <form method="post" action="index.php?action=animal_delete">
                
                         <input type="hidden" name="id" value="<?php echo $item['Id']; ?>"/>
                         <input onclick="return confirm('Bạn có chắc muốn xóa không?');" type="submit" name="delete" value="Xóa"/>

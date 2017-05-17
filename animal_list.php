@@ -1,7 +1,6 @@
 <?php
 require './system/animal.php';
 $aniaml = get_all_animal();
-db_disconnect();
 // Thực hiện xóa
 
 
