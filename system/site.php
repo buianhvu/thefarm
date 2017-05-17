@@ -13,10 +13,9 @@ function load_footer() {
     require ('site/widget/footer.php');
 }
 
-function load_content() {
-    require ('site/widget/header.php');
+function load_content($widget) {
+    require ('site/widget/'.$widget.'.php');
 }
-
 
 ?>
 

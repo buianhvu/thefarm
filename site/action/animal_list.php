@@ -13,7 +13,7 @@ db_disconnect();
             </head>
         <body>
                 <h1>Animal list</h1>
-                <a href="animal-add.php">Thêm sinh viên</a> <br/> <br/>
+                <a href="animal-add.php"></a> <br/> <br/>
                 <table width="100%" border="1" cellspacing="0" cellpadding="10">
                         <tr>
                                 <td>ID</td>
