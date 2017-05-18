@@ -47,6 +47,7 @@ $aniaml = get_all_cow();
                         <div class="content-panel">
                             <h4><i class="fa fa-angle-right"></i> Cow List</h4>
                             <section id="unseen">
+                                
                                 <table class="table table-bordered table-striped table-advanced"
                                     <thead>
                                         <tr>
@@ -88,6 +89,12 @@ $aniaml = get_all_cow();
                                     <?php } ?>
                                     </tbody>
                                 </table>
+                                
+                                <form method="post" action="index.php?action=list/add_animal">
+                                                   
+                                      <input type="hidden" name="animal_id" value="3"/>
+                                    <input type="submit" name="submit" value="add a cow" style="float: right;">
+                                            </form>
                             </section>
                         </div><!-- /content-panel -->
                     </div><!-- /col-lg-4 -->			
