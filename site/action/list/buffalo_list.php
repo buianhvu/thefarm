@@ -1,7 +1,6 @@
 <?php
 require 'system/animal.php';
-$animal = get_all_cow();
-
+$animal = get_all_buffalo();
 ?>
  
 <?php
@@ -13,17 +12,16 @@ load_sidebar();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cow list</title>
+        <title>Buffalo list</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Cow list</h1>
-<form method="post" action="index.php?action=list/add_animal">
+        <h1>Buffalo list</h1>
+       <form method="post" action="index.php?action=list/add_animal">
                
-  <input type="hidden" name="animal_id" value="3"/>
-<input type="submit" name="submit" value="add a cow" style="float: right;">
-        </form>
+  <input type="hidden" name="animal_id" value="2"/>
+<input type="submit" name="submit" value="add a buffalo" style="float: right;">
         <table width="100%" border="1" cellspacing="0" cellpadding="10">
             <tr>
                     <td>ID</td>
@@ -44,7 +42,7 @@ load_sidebar();
  <td><?php echo $item['Source']; ?></td>
  <td><?php echo $item['Account']; ?></td>
                 <td>
-                        <form method="post" action="index.php?action=list/cow_delete">
+                        <form method="post" action="index.php?action=list/buffalo_delete">
                
                         <input type="hidden" name="id" value="<?php echo $item['Id']; ?>"/>
                         <input onclick="return confirm('Bạn có chắc muốn xóa không?');" type="submit" name="delete" value="Xóa"/>
