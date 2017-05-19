@@ -1,4 +1,5 @@
 <?php
+check_login();
 session_start();
 require 'system/animal.php';
 $health_index=$_POST['health_index'];

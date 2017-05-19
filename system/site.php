@@ -23,12 +23,14 @@ function load_admin(){
 function check_login(){
     session_start();
     if(!isset($_SESSION['permission'])) 
-{
-    die("YOU DO NOT OWN PERMISSION TO ACCESS THIS PAGE !");
+{   
+    echo '<a href="index.php?action=login" >Click Here To Login</a>';
+    die("<br>YOU DO NOT OWN PERMISSION TO ACCESS THIS PAGE !");
 }
  else {
      if($_SESSION['permission'] != 0 ){
-        die("YOU DO NOT OWN PERMISSION TO ACCESS THIS PAGE !");     
+        echo '<a href="index.php?action=login" >Click Here To Login</a>';
+        die("<br>YOU DO NOT OWN PERMISSION TO ACCESS THIS PAGE !");     
      }
 }
 }

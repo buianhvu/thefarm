@@ -1,4 +1,5 @@
 <?php
+check_login();
 require 'system/animal.php';
 $animal_id=(int)$_POST['animal_id'];
 $id = isset($_POST['id']) ? (int)$_POST['id'] : '';
