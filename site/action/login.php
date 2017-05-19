@@ -14,7 +14,7 @@ if($hit_login){
     if ($admin_var['Password'] == $pass) {
         $_SESSION['Account'] = $name;
         $_SESSION['Password'] = $pass;
-        $_SESSION['permission'] = $admin_var['permission'];
+        $_SESSION['permission'] = 0;
         echo '<script language="javascript">';
             echo'window.location = "index.php?action=home"';
         echo '</script>';

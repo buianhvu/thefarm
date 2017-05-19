@@ -1,6 +1,22 @@
 <?php
 require 'system/animal.php';
-$aniaml = get_all_cow();
+$animal_id=$_GET['Animal_Id'];
+
+$sql = 'SELECT * FROM animals WHERE Animal_ID = ' . $animal_id . '';
+$animal = db_select_list($sql);
+if ($animal_id == 1) {
+    $animal_kind = 'Pig';
+}
+if ($animal_id == 2) {
+    $animal_kind = 'Buffalo';
+}
+if ($animal_id == 3) {
+    $animal_kind = 'Cow';
+}
+if ($animal_id == 4) {
+    $animal_kind = 'Chicken';
+}
+;
 ?>
 
 <!DOCTYPE html>
@@ -41,48 +57,45 @@ $aniaml = get_all_cow();
 
         <section id="main-content">
             <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> Cow </h3>
+                <h3><i class="fa fa-angle-right"></i> <?php echo $animal_kind ?> </h3>
                 <div class="row mt">
                     <div class="col-lg-12">
                         <div class="content-panel">
-                            <h4><i class="fa fa-angle-right"></i> Cow List</h4>
+                            <h4><i class="fa fa-angle-right"></i> <?php echo $animal_kind ?> List</h4>
+                            <form method="post" action="index.php?action=animal_add">
+                                    <!--  <button type="button" class="btn btn-theme02"><i class="fa fa-check"></i> Button</button>             -->
+                                      <input type="hidden" name="animal_id" value="<?php echo $animal_id ?>"/>
+                                    <button  type="submit" name="submit" value="add a <?php echo $animal_kind ?>" style="float: left;" class="btn btn-theme04"><i class="fa fa-check"></i>Add a <?php echo $animal_kind ?></button>
+                                            </form>
                             <section id="unseen">
                                 
-                                <table class="table table-bordered table-striped table-advanced"
+                                <table class="table table-hover table-striped table-advanced"
                                     <thead>
                                         <tr>
-                                            <th class="numeric">ID</th>
-                                            <th class="numeric">Animal</th>
-                                            <th class="numeric">Sex</th>
-                                            <th class="numeric">Health index</th>
-                                            <th class="numeric">Weight</th>
-                                            <th>Source</th>
-                                            <th>Account</th>
+                                            <th class="col-lg-1" class="numeric">ID</th>
+                                            <th class="col-lg-1" class="numeric">Animal</th>
+                                            <th class="col-lg-1" class="numeric">Sex</th>
+                                            <th class="col-lg-1" class="numeric">Health index</th>
+                                            <th class="col-lg-1" class="numeric">Weight</th>
+                                            <th class="col-lg-2" class="pull-center">Source</th>
+                                            <th class="col-lg-2" class="pull-right">Account</th>
+                                            <th class="col-lg-2" class="pull-left"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="numeric">3</td>
-                                            <td class="numeric">3</td>
-                                            <td class="numeric">$1.38</td>
-                                            <td class="numeric">-0.01</td>
-                                            <td class="numeric">-0.36%</td>
-                                            <td>Vietnam</td>
-                                            <td>hoangdinhtuan</td>
-                                        </tr>
-                                        <?php foreach ($aniaml as $item) { ?>
+                                        <?php foreach ($animal as $item) { ?>
                                                         <tr>
                                                           <td class="numeric"><?php echo $item['Id']; ?></td>
                                                           <td class="numeric"><?php echo $item['Animal_ID']; ?></td>
                                                           <td class="numeric"><?php echo $item['Sex']; ?></td>
                                                           <td class="numeric"><?php echo $item['Health_Index']; ?></td>
                                                           <td class="numeric"><?php echo $item['Weight']; ?></td>
-                                                          <td><?php echo $item['Source']; ?></td>
-                                                          <td><?php echo $item['Account']; ?>
-                                                              <form method="post" action="index.php?action=animal_delete">
-                                                                    <input type="hidden" name="id" value="<?php echo $item['Id']; ?>"/>
-                                                                    
-                                            <button onclick="return confirm('Bạn có chắc muốn xóa không?');"class="pull-right" class="btn btn-danger btn-xs" type="submit" name="delete" value="Xóa"><i class="fa fa-trash-o"></i></button>
+                                                          <td class="pull-center"><?php echo $item['Source']; ?></td>
+                                                          <td class="pull-center"><?php echo $item['Account']; ?></td>
+                                                          <td><form method="post" action="index.php?action=animal_delete">
+                                                               <input type="hidden" name="id" value="<?php echo $item['Id']; ?>"/>
+                                                               <input type="hidden" name="animal_id" value="<?php echo $item['Animal_ID']; ?>"/>
+                                                               <button onclick="return confirm('Bạn có chắc muốn xóa không?');" class="btn btn-danger btn-xs" type="submit" name="delete" value="Xóa"><i class="fa fa-trash-o"></i></button>
                                                               </form>
                                                           </td>
                                         </tr>
@@ -90,11 +103,7 @@ $aniaml = get_all_cow();
                                     </tbody>
                                 </table>
                                 
-                                <form method="post" action="index.php?action=list/add_animal">
-                                                   
-                                      <input type="hidden" name="animal_id" value="3"/>
-                                    <input type="submit" name="submit" value="add a cow" style="float: right;">
-                                            </form>
+                                
                             </section>
                         </div><!-- /content-panel -->
                     </div><!-- /col-lg-4 -->			

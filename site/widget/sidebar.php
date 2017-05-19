@@ -24,10 +24,10 @@
                           <span>CATTLE</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="index.php?action=buffalo_list">Buffalo</a></li>
-                          <li><a  href="index.php?action=chicken_list">Chicken</a></li>
-                          <li><a  href="index.php?action=cow_list">Cow</a></li>
-                          <li><a  href="index.php?action=pig_list">Pig</a></li>
+                          <li><a  href="index.php?action=animal_list&Animal_Id=2">Buffalo</a></li>
+                          <li><a  href="index.php?action=animal_list&Animal_Id=4">Chicken</a></li>
+                          <li><a  href="index.php?action=animal_list&Animal_Id=3">Cow</a></li>
+                          <li><a  href="index.php?action=animal_list&Animal_Id=1">Pig</a></li>
                       </ul>
                   </li>
 
