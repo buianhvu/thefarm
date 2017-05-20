@@ -1,6 +1,19 @@
 <?php
 $animal_id=$_POST['animal_id'];
 $account = $_SESSION['Account'];
+
+if ($animal_id == 1) {
+    $animal_kind = 'PIG';
+}
+if ($animal_id == 2) {
+    $animal_kind = 'BUFFALO';
+}
+if ($animal_id == 3) {
+    $animal_kind = 'COW';
+}
+if ($animal_id == 4) {
+    $animal_kind = 'CHICKEN';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +50,7 @@ $account = $_SESSION['Account'];
 
 <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> ADD A COW</h3>
+          	<h3><i class="fa fa-angle-right"></i> ADD A <?php echo $animal_kind ?> </h3>
           	
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
@@ -54,14 +67,24 @@ $account = $_SESSION['Account'];
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Weight</label>
                               <div class="col-sm-2">
-                                  <input type="number" name="weight" class="form-control">
+                                  <input type="text" name="weight" class="form-control">
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Source</label>
-                              <div class="col-sm-3">
-                                  <input type="text" name="source" class="form-control">
-                              </div>
+                              <div class="col-sm-2">                                  
+                              <select class="form-control" title="Place" name="source">                                                            
+                                 <option value="Hai Phong">Hai Phong</option>
+                                 <option value="Ha Noi">Ha Noi</option>
+                                 <option value="Nghe An">Nghe An</option>
+                                 <option value="Vinh Phuc">Vinh Phuc</option>
+                                 <option value="Bac Giang">Bac Giang</option>
+                                 <option value="Laos">Laos</option>
+                                 <option value="Cambodia">Cambodia</option>
+                                 <option value="Thailand">Thailand</option>
+                                 <option value="Korea">Korea</option>
+                              </select>
+                              </div>    
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Date Import</label>
@@ -71,8 +94,8 @@ $account = $_SESSION['Account'];
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Sex</label>
-                              <div class="col-sm-2">
-                              <select name="txtSex">                                                            
+                              <div class="col-sm-1">                                  
+                              <select class="form-control" name="txtSex">                                                            
                                  <option value="1">Male</option>
                                  <option value="0">Female</option>
                               </select>
@@ -80,15 +103,18 @@ $account = $_SESSION['Account'];
                           </div>
                           <div class="form-group">
                               
+                              <div>    
                           <input type="hidden" name="animal_id"value="<?php echo $animal_id?>"/>
                           <button type="submit" value="Add" class="btn btn-theme"><i class="fa fa-check">Add</i></button>
-                          <div class="col-sm-2">
-                          <button style="float: right" type="reset" value="Reset" class="btn btn-theme"><i class="fa fa-check">Reset</i></button>
+                          <div class="col-lg-1">
+                          <button style="float: left" type="reset" value="Reset" class="btn btn-theme"><i class="fa fa-check">Reset</i></button>
                               </div>
                           </div>
-                       
-                        
+                          </div>
                       </form>
+                          <div class="form-group">
+                              <button class="btn btn-theme" value="cancel" /><a href="index.php?action=Animal_list&Animal_Id= <?php echo $animal_id ?>" /><i class="fa fa-arrow-left">Cancel</i></button>
+                          </div>
                   </div>
           		</div><!-- col-lg-12-->      	
           	</div><!-- /row -->

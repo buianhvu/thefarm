@@ -13,14 +13,14 @@
               	  	
                   <li class="mt">
                       <a class="active" href="index.php?action=home">
-                          <i class="fa fa-dashboard"></i>
+                          <i class="fa fa-home"></i>
                           <span>MAIN PAGE</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
+                          <i class="fa fa-user"></i>
                           <span>CATTLE</span>
                       </a>
                       <ul class="sub">
@@ -33,24 +33,21 @@
 
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
+                          <i class="fa fa-gift"></i>
                           <span>FOOD</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
+                          <li><a  href="index.php?action=food">Manage</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-book"></i>
-                          <span>Extra Pages</span>
+                          <i class="fa fa-dollar"></i>
+                          <span>Finance</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="blank.html">Blank Page</a></li>
-                          <li><a  href="login.html">Login</a></li>
-                          <li><a  href="lock_screen.html">Lock Screen</a></li>
+                          <li><a  href="index.php?action=transaction">Transaction</a></li>
+                          <li><a  href="">Login</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

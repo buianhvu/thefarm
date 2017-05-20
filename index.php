@@ -8,6 +8,9 @@ $action = input_get('action');
 
 require syspath."site.php";
 
+if(!$action){
+        header('location: index.php?action=login');
+}
 if(file_exists('site/action/'.$action. '.php'))
 {
     require ('site/action/'.$action. '.php');

@@ -63,15 +63,16 @@ if ($animal_id == 4) {
                         <div class="content-panel">
                             <h4><i class="fa fa-angle-right"></i> <?php echo $animal_kind ?> List</h4>
                             <form method="post" action="index.php?action=animal_add">
-                                    <!--  <button type="button" class="btn btn-theme02"><i class="fa fa-check"></i> Button</button>             -->
-                                      <input type="hidden" name="animal_id" value="<?php echo $animal_id ?>"/>
-                                    <button  type="submit" name="submit" value="add a <?php echo $animal_kind ?>" style="float: left;" class="btn btn-theme04"><i class="fa fa-check"></i>Add a <?php echo $animal_kind ?></button>
-                                            </form>
+                                    <input type="hidden" name="animal_id" value="<?php echo $animal_id ?>"/>
+                                    <button  type="submit" name="submit" value="add a <?php echo $animal_kind ?>" style="float: left;" class="btn btn-theme03"><i class="fa fa-check"></i>Add a <?php echo $animal_kind ?></button>
+                            </form>
+                            <button class="btn btn-theme04"><i class="fa fa-trash-o"></i>Delete selected <?php echo $animal_kind ?></button>
                             <section id="unseen">
                                 
                                 <table class="table table-hover table-striped table-advanced"
                                     <thead>
                                         <tr>
+                                            <th class="col-lg-1"></th>
                                             <th class="col-lg-1" class="numeric">ID</th>
                                             <th class="col-lg-1" class="numeric">Animal</th>
                                             <th class="col-lg-1" class="numeric">Sex</th>
@@ -85,6 +86,7 @@ if ($animal_id == 4) {
                                     <tbody>
                                         <?php foreach ($animal as $item) { ?>
                                                         <tr>
+                                                          <td><input type="checkbox" name="check" value="ON" />  
                                                           <td class="numeric"><?php echo $item['Id']; ?></td>
                                                           <td class="numeric"><?php echo $item['Animal_ID']; ?></td>
                                                           <td class="numeric"><?php echo $item['Sex']; ?></td>
