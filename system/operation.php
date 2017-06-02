@@ -315,6 +315,15 @@ function get_sick_animals($account) {
     else
         return null;
 }
+function get_sick_number($animal_id,$account) {
+    global $conn;
+    $sql = "SELECT COUNT(medical_care.Id)as total FROM medical_care Natural join animals WHERE Health_Index <50"
+            . " AND Account = '$account' AND Animal_id='$animal_id' ";
+    $result4 = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result4);
+    $total = $row['total'];
+    return $total;
+}
 
 function get_medical_animals($account) {
     $sql = "SELECT * FROM medical_care WHERE Account = '$account'";
@@ -324,3 +333,24 @@ function get_medical_animals($account) {
     else
         return null;
 }
+function get_total_price($account,$animal_id){
+     $sql4 = "SELECT COUNT(Id)as total FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'";
+                                    $result4 = mysqli_query($conn, $sql4);
+                                    $row4 = mysqli_fetch_assoc($result4);
+                                   $total_records4 = $row4['total'];
+     
+}
+
+
+function check_price($animal_id) {
+    $sql = "SELECT * FROM animal_price NATURAL JOIN animals WHERE Animal_Id='$animal_id'";
+    $data = db_select_list($sql);
+    $total=0;
+    foreach($data as $key){
+    $money = $key['Weight'] * $key['Price_Per_Unit'];
+    $total=$total+$money;
+    
+    
+}
+return $total;
+    }

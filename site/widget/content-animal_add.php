@@ -75,14 +75,10 @@ if ($animal_id == 4) {
                               <div class="col-sm-2">                                  
                               <select class="form-control" title="Place" name="source">                                                            
                                  <option value="USA">USA</option>
-                                 <option value="Ha Noi">Ha Noi</option>
-                                 <option value="Nghe An">Nghe An</option>
-                                 <option value="Vinh Phuc">Vinh Phuc</option>
-                                 <option value="Bac Giang">Bac Giang</option>
-                                 <option value="Laos">Laos</option>
-                                 <option value="Cambodia">Cambodia</option>
-                                 <option value="Thailand">Thailand</option>
-                                 <option value="Korea">Korea</option>
+                                 <option value="Japan">Japan</option>
+                                 <option value="Russia">Russia</option>
+                                 <option value="France">France</option>
+                               
                               </select>
                               </div>    
                           </div>
