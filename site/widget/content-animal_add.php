@@ -50,7 +50,7 @@ if ($animal_id == 4) {
 
 <section id="main-content">
           <section class="wrapper">
-          	<h3><i class="fa fa-angle-right"></i> ADD A <?php echo $animal_kind ?> </h3>
+          	<h3><i class="fa fa-angle-right"></i> BUY A <?php echo $animal_kind ?> </h3>
           	
           	<!-- BASIC FORM ELELEMNTS -->
           	<div class="row mt">
@@ -74,7 +74,7 @@ if ($animal_id == 4) {
                               <label class="col-sm-2 col-sm-2 control-label">Source</label>
                               <div class="col-sm-2">                                  
                               <select class="form-control" title="Place" name="source">                                                            
-                                 <option value="Hai Phong">Hai Phong</option>
+                                 <option value="USA">USA</option>
                                  <option value="Ha Noi">Ha Noi</option>
                                  <option value="Nghe An">Nghe An</option>
                                  <option value="Vinh Phuc">Vinh Phuc</option>

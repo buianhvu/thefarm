@@ -1,14 +1,6 @@
 <?php
 
-function get_all_animal() {
-    global $conn;
-    $sql = "SELECT * FROM animals";
-    $result = array();
-    while ($row = db_select_row($sql)) {
-        $result[] = $row;
-    }
-    return $result;
-}
+
 
 function get_all_pig() {
     global $conn;

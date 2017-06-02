@@ -1,12 +1,8 @@
 <?php
-require 'system/animal.php';
 require_once  'system/operation.php';
 $account = $_SESSION['Account'];
- $money=get_balance($account);
- 
- $sql_food = "SELECT * FROM food NATURAL JOIN food_kind WHERE Account='$account'ORDER BY  `food`.`Food_ID` ASC";
-    $food = db_select_list($sql_food);
-// $food=get_food_info($account);
+update_medical($account);
+$care=get_medical_animals($account);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +34,8 @@ $account = $_SESSION['Account'];
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+  </head>
+  
   
    <body>
 
@@ -47,55 +44,45 @@ $account = $_SESSION['Account'];
                 <div class="row mt">
                     <div class="col-lg-8">
                         <div class="content-panel">
-                            <h4><i class="fa fa-dollar"></i> MONEY: <?php echo $money ?>$</h4>
-                         
+                          
                                            
                             <section id="unseen">
-                                <form method="post" action="index.php?action=buy_food">
-                                    <input type="hidden" name="animal_id" value="<?php echo $animal_id ?>"/>
-                                    <button  type="submit" name="submit" value="Buy food" style="float: left;" class="btn btn-theme03"><i class="fa fa-check"></i>Buy food</button>
-                            </form>
-                                <table class="table table-bordered table-striped table-condensed"
+                                <h4><i class="fa fa-medkit"></i> Medical care </h4>
+                           
+                                <table class="table table-bordered table-striped table-condensed">
                                     <thead>
                                         <tr>
-                                            <th class="col-lg-3">Food</th>
-                                            <th class="col-lg-3" class="numeric">Quantity(kg)</th>
-                                            <th class="col-lg-3" class="numeric">Price per unit</th>
-                                          
+                                            <th class="col-lg-3" class="numeric">ID</th>
+                                            <th class="col-lg-3" class="numeric">Weight</th>
+                                            <th class="col-lg-3" class="numeric">Animal ID</th>
+                                            <th class="col-lg-3" class="numeric">Temperature</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                     
-                                        <?php foreach ($food as $item) { ?>
-                                                        <td class="pull-center"> <?php echo $item['Food_Name']?></td>
-                                                        <td class="numeric"><?php echo $item['Quantity']?></td>
-                                                        <td class="numeric"><?php echo $item['Price_Per_Unit']?></td>
-                                                
-                                                        
-                                                      
-                                                    </td>
+                                          <?php foreach($care as $item){?>
+                                                        <tr>
+                                                          <td class="numeric"><?php echo $item['Id']; ?></td>
+                                                          <td class="numeric"><?php echo $item['Weight']; ?></td>
+                                                          <td class="numeric"><?php echo $item['Animal_ID']; ?></td>
+                                                          <td class="numeric"><?php echo $item['Temperature']; ?></td>
                                         </tr>
-                                    <?php } ?>
+                                          <?php }?>
                                     </tbody>
-                               
-                             
+                                </table>
                                 
                                 
+
                             </section>
                         </div><!-- /content-panel -->
                     </div><!-- /col-lg-4 -->			
                 </div><!-- /row -->
 
-<!-- js placed at the end of the document so the pages load faster -->
-       
-        <!-- Latest minified bootstrap css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
 
             </section><! --/wrapper -->
         </section><!-- /MAIN CONTENT -->
 
         <!--main content end-->
 </html>
+
 

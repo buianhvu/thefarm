@@ -3,14 +3,15 @@
 define ('syspath','system/');
 require syspath."client.php";
 require syspath."database.php";
+require_once syspath."operation.php";
 db_connect();
 $action = input_get('action');
 
 require syspath."site.php";
 
-if(!$action){
-        header('location: index.php?action=login');
-}
+//if(!$action){
+  //      header('location: index.php?action=login');
+//}
 if(file_exists('site/action/'.$action. '.php'))
 {
     require ('site/action/'.$action. '.php');

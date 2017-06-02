@@ -1,4 +1,10 @@
+<?php
+session_start();
+require_once  'system/operation.php';
+$account = $_SESSION['Account'];
+$money=get_balance($account);
 
+?>
 <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
@@ -8,9 +14,9 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="profile.html"><img src="public/site/assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">ADMIN</h5>
-              	  	
+                  <p class="centered"><a href="profile.html"><img src="public/site/assets/img/logo.png" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered"><?php echo $account?></h5>
+              	  	 <h5 class="centered">Balance: <?php echo $money?> $</h5>
                   <li class="mt">
                       <a class="active" href="index.php?action=home">
                           <i class="fa fa-home"></i>
@@ -47,16 +53,17 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="index.php?action=transaction">Transaction</a></li>
-                          <li><a  href="">Login</a></li>
+                         
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-tasks"></i>
-                          <span>Forms</span>
+                          <span>Medical</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="form_component.html">Form Components</a></li>
+                          <li><a  href="index.php?action=medicalcare">Medical care</a></li>
+                          <li><a  href="index.php?action=Sick_animal">Sick animal</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

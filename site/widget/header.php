@@ -186,6 +186,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
+                    
                     <li><a class="logout" href="index.php?action=login">Logout</a></li>
             	</ul>
             </div>

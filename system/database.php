@@ -67,7 +67,16 @@ function db_delete_by_id($table, $idfield, $idvalue){
     $sql = 'DELETE FROM `'.$table.'` WHERE '.$idfield.' = '.(int)$idvalue.'';
     return mysqli_query($conn, $sql);
 }
+function db_update_by_value($table, $idfield, $idvalue, $data = array() ){
 
+    global $conn;
+    $sql_tmp = '';
+    foreach($data as $key => $val) {
+        $sql_tmp .= $key.' = '.'\''.$val.'\',';
+    }
+    $sql = "update ".$table." set ".trim($sql_tmp, ',')." where ".$idfield." ='".trim($idvalue)."'";
+    return mysqli_query($conn, $sql);
+}
 //
 ////function db_count($sql, $count_as){
 //    // select count(*) as num_count from table

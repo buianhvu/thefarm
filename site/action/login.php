@@ -1,4 +1,4 @@
-<?PHP
+i<?PHP
 session_start();
 session_destroy();
 
@@ -87,13 +87,33 @@ if($hit_login){
                             Don't have an account yet?<br/>
                             <label class="checkbox">
                             <span class="pull-center">
-                                <a data-toggle="modal" href="login.php#myModal"> Create an account</a>
+                                
+                                <a data-toggle="modal" href="#myModal"> Create an account</a>
 
                             </span>
                             </label>
                         </div>
 
                     </div>
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                 <!-- Latest minified bootstrap css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest minified bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
                     <!-- Modal -->
                     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
@@ -104,15 +124,23 @@ if($hit_login){
                                     <h4 class="modal-title">Create a new account</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Enter your ID.</p>
-                                    <input type="text"  name="id" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix">
+                                    <p>Enter your account.</p>
+                                    <input type="text" name="dname" id="name" placeholder="ID" autocomplete="off" class="form-control placeholder-no-fix">
                                     <p>Enter your password.</p>
-                                    <input type="password"  name="newpassword"  placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
+                                    <input type="password" name="password"  id="password"  placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
+                                    <p>Confirm your password.</p>
+                                    <input type="password" name="cpassword" id="cpassword"  placeholder="Password" autocomplete="off" class="form-control placeholder-no-fix">
 
                                 </div>
+                                <div class="alert alert-danger hide">
+ 
+                        </div>
+                        <div class="alert alert-success hide">
+ 
+                        </div>
                                 <div class="modal-footer">
                                     <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                                    <button class="btn btn-theme" type="button">Submit</button>
+                                    <button class="btn btn-theme" type="button" id="register-btn">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +162,33 @@ if($hit_login){
         <script>
             $.backstretch("public/site/assets/img/login.jpg", {speed: 500});
         </script>
-
+        <script type="text/javascript">
+        $(document).ready(function() {
+$("#register-btn").click(function() {
+var name = $("#name").val();
+//var email = $("#email").val();
+var password = $("#password").val();
+var cpassword = $("#cpassword").val();
+if (name == ''  || password == '' || cpassword == '') {
+alert("Please fill all fields...!!!!!!");
+} else if ((password.length) < 8) {
+alert("Password should atleast 8 character in length...!!!!!!");
+} else if (!(password).match(cpassword)) {
+alert("Your passwords don't match. Try again?");
+} else {
+$.post("index.php?action=register", {
+name: name,
+password: password
+}, function(data) {
+if (data == 'You have Successfully Registered.....') {
+$("form")[0].reset();
+}
+alert(data);
+});
+}
+});
+});
+    </script>
 
     </body>
 </html>

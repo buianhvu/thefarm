@@ -1,4 +1,12 @@
+<?php
 
+require_once  'system/operation.php';
+
+$account = $_SESSION['Account'];
+$money=get_balance($account);
+$sql_tran = "SELECT * FROM transaction WHERE Account='$account'";
+    $transaction = db_select_list($sql_tran);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,6 +48,7 @@
                     <div class="col-lg-10">
                         <div class="content-panel">
                             <h4><i class="fa fa-credit-card"></i> Transaction:</h4>
+                          <h4><i class="fa fa-dollar"></i> MONEY: <?php echo $money ?>$</h4>
                           
                                            
                             <section id="unseen">
@@ -56,34 +65,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="numeric">7</td>
-                                            <td>in</td>
-                                            <td>sell</td>
-                                            <td class="numeric">19</td>
-                                            <td>19/5/2017</td>             
+                                        
+                                       
+                                       
+                                         <?php foreach ($transaction as $item) { ?>
+                                                        <td class="pull-center"> <?php echo $item['Transaction_ID']?></td>
+                                                        <td class="numeric"><?php echo $item['Type']?></td>
+                                                        <td class="numeric"><?php echo $item['Action']?></td>
+                                                        <td class="numeric"><?php echo $item['Money']?></td>
+                                                        <td class="numeric"><?php echo $item['Trans_Date']?></td>
+                                                        
+                                                
+                                                    </td>
                                         </tr>
-                                        <tr>
-                                            <td class="numeric">11</td>
-                                            <td>out</td>
-                                            <td>buy</td>
-                                            <td class="numeric">21</td>
-                                            <td>19/5/2017</td>             
-                                        </tr>
-                                        <tr>
-                                            <td class="numeric">14</td>
-                                            <td>out</td>
-                                            <td>buy</td>
-                                            <td class="numeric">7</td>
-                                            <td>19/5/2017</td>             
-                                        </tr>
-                                        <tr>
-                                            <td class="numeric">22</td>
-                                            <td>in</td>
-                                            <td>sell</td>
-                                            <td class="numeric">34</td>
-                                            <td>19/5/2017</td>             
-                                        </tr>
+                                    <?php } ?>
                                     </tbody>
                                 </table>
                                 
