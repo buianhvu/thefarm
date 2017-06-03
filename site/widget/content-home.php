@@ -175,7 +175,7 @@ $account = $_SESSION['Account'];
                     <div class="border-head">
                         <h3>VISITS</h3>
                     </div>
-                    <div class="custom-bar-chart">
+<!--                    <div class="custom-bar-chart">
                         <ul class="y-axis">
                             <li><span>10.000</span></li>
                             <li><span>8.000</span></li>
@@ -212,7 +212,7 @@ $account = $_SESSION['Account'];
                             <div class="title">JUL</div>
                             <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">75%</div>
                         </div>
-                    </div>
+                    </div>-->
                     <!--custom chart end-->
                 </div><!-- /row -->	
 

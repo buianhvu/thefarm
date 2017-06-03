@@ -2,24 +2,84 @@
 require 'system/animal.php';
 //require 'system/money.php';
 require_once  'system/operation.php';
-$rec_limit=20;
- if( isset($_GET{'page'} ) )
-         {
-            $page = $_GET{'page'} + 1;
-            $offset = $rec_limit * $page ;
-         }
-         else
-         {
-            $page = 0;
-            $offset = 0;
-         }
+$key=isset($_GET['key']) ? $_GET['key'] : 0 ;
+
 $animal_id=$_GET['Animal_Id'];
 
 $account = $_SESSION['Account'];
+if(($key==1)){
 $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
         ."ORDER by ID DESC";
-        
-       
+}
+ 
+ else if($key==2){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by ID ASC";
+}
+else if($key==3){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by Health_Index DESC";
+}
+else if($key==4){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by Health_Index ASC";
+}
+else if($key==5){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by Weight DESC";
+}
+else if($key==6){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by Weight ASC";
+}
+else if($key==7){
+    $id=$_POST['number_id'];
+    $ope=$_POST['id_ope'];
+    if($ope==1){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Id='$id'"
+        ."ORDER by Id ASC";
+}
+ if($ope==2){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Id>'$id'"
+        ."ORDER by Id ASC";
+}
+ if($ope==3){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Id<'$id'"
+        ."ORDER by Id ASC";
+}
+    }
+else if($key==8){
+    $search_source=$_POST['search_source'];
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Source LIKE '$search_source'"
+        ."ORDER by Source ASC";
+}
+else if($key==9){
+    $w=$_POST['weight_id'];
+    $opew=$_POST['w_ope'];
+    if($opew==1){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Weight='$w'"
+        ."ORDER by Weight ASC";
+}
+ if($opew==2){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Weight>'$w'"
+        ."ORDER by Weight ASC";
+}
+ if($opew==3){
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+            . "AND Weight<'$w'"
+        ."ORDER by Weight ASC";
+}
+    }
+else{
+    $sql = "SELECT * FROM animals WHERE Animal_ID = '$animal_id' AND Account = '$account'"
+        ."ORDER by ID DESC";
+}
 $money=get_balance($account);
 $animal = db_select_list($sql);
 if ($animal_id == 1) {
@@ -75,12 +135,12 @@ if ($animal_id == 4) {
 
         <section id="main-content">
             <section class="wrapper">
-                <h3><i class="fa fa-angle-right"></i> <?php echo $animal_kind ?> </h3>
+                <h3><i class="fa fa-angle-right"></i> <?php echo $animal_kind ;?> </h3>
                 <div class="row mt">
                     <div class="col-lg-12">
                         <div class="content-panel">
                             <h4><i class="fa fa-angle-right"></i> <?php echo $animal_kind ?> List</h4>
-                             <h4><i class="fa fa-angle-right"></i>Money: <?php echo $money ?> </h4>
+                             <h4><i class="fa fa-angle-right"></i>Money: <?php echo $money ?> $ </h4>
                             <form method="post" action="index.php?action=animal_add">
                                     <input type="hidden" name="animal_id" value="<?php echo $animal_id ?>"/>
                                     <button  type="submit" name="submit" value="Buy a <?php echo $animal_kind ?>" style="float: left;" class="btn btn-theme03"><i class="fa fa-check"></i>Buy a <?php echo $animal_kind ?></button>
@@ -94,15 +154,62 @@ if ($animal_id == 4) {
                                     <thead>
                                         <tr>
                                             <th class="col-lg-1"></th>
-                                            <th class="col-lg-1" class="numeric">ID</th>
+                                            <th class="col-lg-1" class="numeric">ID
+                                                <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=1"  >
+                                                    (+
+                                                </a>
+                                            <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=2"  >
+                                                    --)
+                                                </a>
+                                            <form method="post" action="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=7">
+                                                <input type="text"style="width: 45px; height:40px" name="number_id"  />
+                                                <select class="form-control" title="Search" name="id_ope" style="width: 60px; height:40px; float:left">                                                            
+                                                    <option value="1">=</option>
+                                                    <option value="2">></option>
+                                                    <option value="3"><</option>
+                                                   
+
+                                                </select>
+                                            </form></th>
                                             <th class="col-lg-1" class="numeric">Animal</th>
                                             <th class="col-lg-1" class="numeric">Sex</th>
-                                            <th class="col-lg-1" class="numeric">Health index</th>
-                                            <th class="col-lg-1" class="numeric">Weight</th>
-                                            <th class="col-lg-2" class="pull-center">Source</th>
+                                            <th class="col-lg-1" class="numeric">Health index
+                                             <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=3"  >
+                                                    (+
+                                                </a>
+                                            <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=4"  >
+                                                    --)</th>
+                                            <th class="col-lg-1" class="numeric">Weight
+                                            <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=5"  >
+                                                    (+
+                                                </a>
+                                            <a
+                                                    href="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=6"  >
+                                                --)</a>
+                                            <form method="post" action="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=9">
+                                                <input type="text"style="width: 45px; height:40px" name="weight_id"  />
+                                                <select class="form-control" title="Searchdss" name="w_ope" style="width: 60px; height:40px; float:left">                                                            
+                                                    <option value="1">=</option>
+                                                    <option value="2">></option>
+                                                    <option value="3"><</option>
+                                                   
+
+                                                </select>
+                                            </form></th></th>
+                                            <th class="col-lg-2" class="pull-center">Source<br>
+                                            <form method="post" action="index.php?action=animal_list&Animal_Id=<?php echo $animal_id ?>&key=8">
+                                                <input style="width: 60px; height:40px;" type="text" name="search_source" />
+                                            </form>
+                                            </th>
                                             
                                             <th class="col-lg-2" class="pull-left"></th>
                                         </tr>
+                                       
                                     </thead>
                                     <tbody>
                                         <?php foreach ($animal as $item) { ?>

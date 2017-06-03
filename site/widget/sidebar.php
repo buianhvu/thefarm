@@ -14,7 +14,7 @@ $money=get_balance($account);
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <p class="centered"><a href="profile.html"><img src="public/site/assets/img/logo.png" class="img-circle" width="60"></a></p>
+                  <p class="centered"><a ><img src="public/site/assets/img/logo.png" class="img-circle" width="60"></a></p>
               	  <h5 class="centered"><?php echo $account?></h5>
               	  	 <h5 class="centered">Balance: <?php echo $money?> $</h5>
                   <li class="mt">
@@ -58,7 +58,7 @@ $money=get_balance($account);
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-tasks"></i>
+                          <i class="fa fa-medkit"></i>
                           <span>Medical</span>
                       </a>
                       <ul class="sub">
@@ -66,26 +66,7 @@ $money=get_balance($account);
                           <li><a  href="index.php?action=Sick_animal">Sick animal</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Data Tables</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="basic_table.html">Basic Table</a></li>
-                          <li><a  href="responsive_table.html">Responsive Table</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Charts</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="morris.html">Morris</a></li>
-                          <li><a  href="chartjs.html">Chartjs</a></li>
-                      </ul>
-                  </li>
+                 
 
               </ul>
               <!-- sidebar menu end-->
