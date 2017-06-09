@@ -44,11 +44,10 @@ $care=get_medical_animals($account);
                 <div class="row mt">
                     <div class="col-lg-8">
                         <div class="content-panel">
-                          
+                            <h4><i class="fa fa-medkit"></i> Medical care </h4>                           
+
                                            
                             <section id="unseen">
-                                <h4><i class="fa fa-medkit"></i> Medical care </h4>
-                           
                                 <table class="table table-bordered table-striped table-condensed">
                                     <thead>
                                         <tr>

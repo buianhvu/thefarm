@@ -12,7 +12,7 @@ $account = $_SESSION['Account'];
 
                 <div class="row mtbox">
                     <div>
-                        <a class="fancybox"href="public/site/assets/img/mainpage.png"><img class="img-responsive" src="public/site/assets/img/mainpage.jpg" alt=""></a>
+                        <a class="fancybox"><img class="img-responsive" src="public/site/assets/img/mainpage.jpg" alt=""></a>
                     </div>
 
                 </div><!-- /row mt -->	
@@ -172,9 +172,7 @@ $account = $_SESSION['Account'];
 
                 <div class="row mt">
                     <!--CUSTOM CHART START -->
-                    <div class="border-head">
-                        <h3>VISITS</h3>
-                    </div>
+                   
 <!--                    <div class="custom-bar-chart">
                         <ul class="y-axis">
                             <li><span>10.000</span></li>
